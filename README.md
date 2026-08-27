@@ -6,10 +6,10 @@ This project answers that question rigorously, using real market data from the B
 
 ## Motivation
 
-Where people and organisation could put their money ?
-The native response is gold or real estate for large amount of money, these are basic investement and their is better alternatives of it such as stocks, wich they have the ability to make revenues by giving divident.
-According to the latest official data from the US Federal Reserve’s Survey of Consumer Finance, 21% of US families own stocks. instead in morrocco it is less than 1%.
-Personal finance calculators built for US or European markets don't apply cleanly to Morocco: dividend yields, tax treatment (15% withholding on dividends, capital gains exempt after 12 months), inflation, and market volatility on the MASI are all different. This tool is built specifically for the Moroccan context, using MASI historical data and the dividend profiles of the largest listed companies (Attijariwafa, Maroc Telecom, BCP, Managem, etc.).
+-Where people and organisation could put their money ?
+-The native response is gold or real estate for large amount of money, these are basic investement and their is better alternatives of it such as stocks, wich they have the ability to make revenues by giving divident.
+-According to the latest official data from the US Federal Reserve’s Survey of Consumer Finance, 21% of US families own stocks. instead in morrocco it is less than 1%.
+-Personal finance calculators built for US or European markets don't apply cleanly to Morocco: dividend yields, tax treatment (15% withholding on dividends, capital gains exempt after 12 months), inflation, and market volatility on the MASI are all different. This tool is built specifically for the Moroccan context, using MASI historical data and the dividend profiles of the largest listed companies (Attijariwafa, Maroc Telecom, BCP, Managem, etc.).
 
 ## What the tool answers
 
@@ -33,7 +33,7 @@ The dividend approach and the withdrawal approach give very different answers fo
 
 ## Tech stack
 
-Python 3.11 · pandas · numpy · scipy · matplotlib · pytest · (optional) streamlit
+Python 3.11 · pandas · numpy · scipy · matplotlib · pytest · streamlit
 
 ## Disclaimer
 
