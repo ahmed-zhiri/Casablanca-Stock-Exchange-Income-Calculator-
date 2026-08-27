@@ -22,7 +22,7 @@ Given a target monthly income and a few assumptions, it computes:
 
 ## Approach
 
-- **Data layer** — historical MASI prices and per-stock dividend yields (CSV + optional scraper)
+- **Data layer** — historical MASI prices and per-stock dividend yields (CSV + scraper)
 - **Dividend model** — closed-form capital requirement, net of Moroccan withholding tax
 - **Monte Carlo engine** — simulates N portfolio paths under a chosen return distribution, reports success rate and percentile outcomes
 - **CLI + notebook demo** — reproducible examples with charts
