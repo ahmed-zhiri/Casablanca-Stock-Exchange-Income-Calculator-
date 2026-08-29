@@ -13,19 +13,49 @@ This project answers that question rigorously, using real market data from the B
 
 ## What the tool answers
 
-Given a target monthly income and a few assumptions, it computes:
+**Income mode** — given a lump-sum capital available today:
+- What monthly (after-tax) income can it generate through dividends?
+- Inversely, what capital is needed for a target monthly income?
 
-- The **capital required via dividends alone**, using either the MASI average yield or a user-selected basket of high-dividend stocks
-- The **capital required via periodic withdrawals**, accounting for expected return, volatility, and inflation
-- The **probability of portfolio survival** over the chosen horizon (sequence-of-returns risk)
-- **Sensitivity analysis**: how the answer changes under optimistic, base, and pessimistic scenarios
+**Accumulation mode** — given a monthly savings capacity:
+- How large will the capital grow over T years, accounting for reinvested dividends and price appreciation (net of tax)?
+- What monthly income will that final capital produce?
+
+**Portfolio tools:**
+- **Screen** stocks by yield, sector, or market capitalization
+- **Suggest** a diversified portfolio for a target income (greedy heuristic with concentration limits) 
+
+## Mathematical model
+
+**Income mode (Model A):**
+
+$$M = \frac{C \cdot y_{\text{net}}}{12} \qquad C = \frac{12 \cdot M}{y_{\text{net}}}$$
+
+where $y_{\text{net}} = y_{\text{gross}} \cdot (1 - \tau_d)$ and $\tau_d = 0.15$.
+
+**Accumulation mode (Model B):**
+
+$$C(T) = s \cdot \frac{(1 + r_{m,\text{net}})^{12T} - 1}{r_{m,\text{net}}}$$
+
+with $r_{\text{net}} = y(1 - \tau_d) + g$ and $r_{m,\text{net}} = (1 + r_{\text{net}})^{1/12} - 1$.
+
+Non-dividend-paying stocks are supported in the dataset but only contribute to capital growth ($g$), never to income ($y = 0$).
 
 ## Approach
 
 - **Data layer** — historical MASI prices and per-stock dividend yields (CSV + scraper)
 - **Dividend model** — closed-form capital requirement, net of Moroccan withholding tax
-- **Monte Carlo engine** — simulates N portfolio paths under a chosen return distribution, reports success rate and percentile outcomes
 - **CLI + notebook demo** — reproducible examples with charts
+
+## Roadmap
+
+- Historical scenario analysis (pessimistic / base / optimistic percentiles)
+- Monte Carlo simulation with probability-of-ruin
+- Markowitz mean-variance portfolio optimization
+- Live data scraper for BVC / Wafabourse
+- Streamlit web interface
+- Multi-phase accumulation (partial retirement, phased transitions)
+- Dividend sustainability scoring
 
 ## Key insight
 
